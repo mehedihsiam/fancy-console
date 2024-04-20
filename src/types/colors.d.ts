@@ -1,0 +1,17 @@
+export type TColors =
+  | "Black"
+  | "Red"
+  | "Green"
+  | "Yellow"
+  | "Blue"
+  | "Magenta"
+  | "Cyan"
+  | "White"
+  | "Gray"
+  | "Bright Red"
+  | "Bright Green"
+  | "Bright Yellow"
+  | "Bright Blue"
+  | "Bright Magenta"
+  | "Bright Cyan"
+  | "Bright White";
