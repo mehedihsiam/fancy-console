@@ -108,10 +108,10 @@ var getVariantDefaultColor = (variant) => {
       return "Bright Blue";
   }
 };
-var getVariantText = (variant, color) => {
+var getVariantText = (variant, color, bg) => {
   const defaultColor = getVariantDefaultColor(variant);
-  const textColorCode = getTextColorCode("Bright White");
-  const bgColorCode = getBackgroundColorCode(color || defaultColor);
+  const textColorCode = getTextColorCode(color || "Bright White");
+  const bgColorCode = getBackgroundColorCode(bg || defaultColor);
   switch (variant) {
     case "success":
       return colorizeText_default(" SUCCESS LOG ", textColorCode, bgColorCode);
@@ -128,11 +128,15 @@ var getVariantText = (variant, color) => {
 var getVariantText_default = getVariantText;
 
 // src/helpers/getLogHeader.ts
-var getLogHeader = (variant, fileName) => {
-  const fileNameColor = getTextColorCode("Bright Blue");
-  const bgColor = getBackgroundColorCode("Bright White");
-  const file = fileName ? `located at ${colorizeText_default(` ${fileName} `, fileNameColor, bgColor)} ` : "";
-  const variantText = getVariantText_default(variant);
+var getLogHeader = (params) => {
+  const fnColor = getTextColorCode(params.fileNameColor || "Bright Blue");
+  const bgColor = getBackgroundColorCode(params.fileNameBg || "Bright White");
+  const file = params.fileName ? `located at ${colorizeText_default(` ${params.fileName} `, fnColor, bgColor)} ` : "";
+  const variantText = getVariantText_default(
+    params.variant,
+    params.identifierColor,
+    params.identifierBg
+  );
   return `
 
 
@@ -140,17 +144,94 @@ var getLogHeader = (variant, fileName) => {
 };
 var getLogHeader_default = getLogHeader;
 
-// src/index.ts
-var fancyConsole = (params) => {
-  console.log(
-    getLogHeader_default(params.variant, params.fileName),
-    "\n\n",
-    params.content,
-    getLogFooter_default()
-  );
+// src/methods/success.ts
+var success = (params) => {
+  const header = getLogHeader_default({
+    variant: "success",
+    fileName: params.fileName,
+    fileNameBg: params.fileNameBg,
+    fileNameColor: params.fileNameColor,
+    identifierBg: params.identifierBg,
+    identifierColor: params.identifierColor
+  });
+  const footer = getLogFooter_default();
+  console.log(header, "\n\n", params.content, footer);
 };
+var success_default = success;
+
+// src/methods/warning.ts
+var warning = (params) => {
+  const header = getLogHeader_default({
+    variant: "warning",
+    fileName: params.fileName,
+    fileNameBg: params.fileNameBg,
+    fileNameColor: params.fileNameColor,
+    identifierBg: params.identifierBg,
+    identifierColor: params.identifierColor
+  });
+  const footer = getLogFooter_default();
+  console.log(header, "\n\n", params.content, footer);
+};
+var warning_default = warning;
+
+// src/methods/error.ts
+var error = (params) => {
+  const header = getLogHeader_default({
+    variant: "error",
+    fileName: params.fileName,
+    fileNameBg: params.fileNameBg,
+    fileNameColor: params.fileNameColor,
+    identifierBg: params.identifierBg,
+    identifierColor: params.identifierColor
+  });
+  const footer = getLogFooter_default();
+  console.log(header, "\n\n", params.content, footer);
+};
+var error_default = error;
+
+// src/methods/info.ts
+var info = (params) => {
+  const header = getLogHeader_default({
+    variant: "info",
+    fileName: params.fileName,
+    fileNameBg: params.fileNameBg,
+    fileNameColor: params.fileNameColor,
+    identifierBg: params.identifierBg,
+    identifierColor: params.identifierColor
+  });
+  const footer = getLogFooter_default();
+  console.log(header, "\n\n", params.content, footer);
+};
+var info_default = info;
+
+// src/index.ts
+var success2 = success_default;
+var warning2 = warning_default;
+var error2 = error_default;
+var info2 = info_default;
+var fancyConsole = (params) => {
+  const header = getLogHeader_default({
+    variant: params.variant,
+    fileName: params.fileName,
+    fileNameBg: params.fileNameBg,
+    identifierBg: params.identifierBg,
+    identifierColor: params.identifierColor
+  });
+  const footer = getLogFooter_default();
+  console.log(header, "\n\n", params.content, footer);
+};
+info2({
+  content: "Log",
+  fileName: "Siam file",
+  fileNameBg: "Red",
+  identifierBg: "Green"
+});
 var src_default = fancyConsole;
 export {
-  src_default as default
+  src_default as default,
+  error2 as error,
+  info2 as info,
+  success2 as success,
+  warning2 as warning
 };
 //# sourceMappingURL=index.js.map

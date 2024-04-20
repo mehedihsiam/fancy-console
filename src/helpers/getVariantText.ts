@@ -19,10 +19,10 @@ const getVariantDefaultColor = (variant: TVariant) => {
   }
 };
 
-const getVariantText = (variant: TVariant, color?: TColors) => {
+const getVariantText = (variant: TVariant, color?: TColors, bg?: TColors) => {
   const defaultColor = getVariantDefaultColor(variant);
-  const textColorCode = getTextColorCode("Bright White");
-  const bgColorCode = getBackgroundColorCode(color || defaultColor);
+  const textColorCode = getTextColorCode(color || "Bright White");
+  const bgColorCode = getBackgroundColorCode(bg || defaultColor);
 
   switch (variant) {
     case "success":

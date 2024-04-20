@@ -1,15 +1,29 @@
+import { TColors } from "../types/colors";
 import { TVariant } from "../types/text-variant";
 import colorizeText from "./colorizeText";
 import { getBackgroundColorCode, getTextColorCode } from "./getColorCode";
 import getVariantText from "./getVariantText";
 
-const getLogHeader = (variant: TVariant, fileName?: string) => {
-  const fileNameColor = getTextColorCode("Bright Blue");
-  const bgColor = getBackgroundColorCode("Bright White");
-  const file = fileName
-    ? `located at ${colorizeText(` ${fileName} `, fileNameColor, bgColor)} `
+type TParams = {
+  variant: TVariant;
+  fileName?: string;
+  fileNameColor?: TColors;
+  fileNameBg?: TColors;
+  identifierColor?: TColors;
+  identifierBg?: TColors;
+};
+
+const getLogHeader = (params: TParams) => {
+  const fnColor = getTextColorCode(params.fileNameColor || "Bright Blue");
+  const bgColor = getBackgroundColorCode(params.fileNameBg || "Bright White");
+  const file = params.fileName
+    ? `located at ${colorizeText(` ${params.fileName} `, fnColor, bgColor)} `
     : "";
-  const variantText = getVariantText(variant);
+  const variantText = getVariantText(
+    params.variant,
+    params.identifierColor,
+    params.identifierBg
+  );
 
   return `\n\n\n* //==================== ${variantText} ${file}====================\\\\ *`;
 };

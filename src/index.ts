@@ -1,23 +1,14 @@
-import getLogFooter from "./helpers/getLogFooter";
-import getLogHeader from "./helpers/getLogHeader";
-import { TColors } from "./types/colors";
-import { TVariant } from "./types/text-variant";
+import consoleSuccess from "./methods/success";
+import consoleWarning from "./methods/warning";
+import consoleError from "./methods/error";
+import consoleInfo from "./methods/info";
+import base from "./methods/base";
 
-type TPayload = {
-  content: any;
-  variant: TVariant;
-  fileName?: string;
-  color?: TColors;
-  bg?: TColors;
-};
+export const success = consoleSuccess;
+export const warning = consoleWarning;
+export const error = consoleError;
+export const info = consoleInfo;
 
-const fancyConsole = (params: TPayload) => {
-  console.log(
-    getLogHeader(params.variant, params.fileName),
-    "\n\n",
-    params.content,
-    getLogFooter()
-  );
-};
+const fancyConsole = base;
 
 export default fancyConsole;
