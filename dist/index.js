@@ -204,12 +204,8 @@ var info = (params) => {
 };
 var info_default = info;
 
-// src/index.ts
-var success2 = success_default;
-var warning2 = warning_default;
-var error2 = error_default;
-var info2 = info_default;
-var fancyConsole = (params) => {
+// src/methods/base.ts
+var base = (params) => {
   const header = getLogHeader_default({
     variant: params.variant,
     fileName: params.fileName,
@@ -220,12 +216,14 @@ var fancyConsole = (params) => {
   const footer = getLogFooter_default();
   console.log(header, "\n\n", params.content, footer);
 };
-info2({
-  content: "Log",
-  fileName: "Siam file",
-  fileNameBg: "Red",
-  identifierBg: "Green"
-});
+var base_default = base;
+
+// src/index.ts
+var success2 = success_default;
+var warning2 = warning_default;
+var error2 = error_default;
+var info2 = info_default;
+var fancyConsole = base_default;
 var src_default = fancyConsole;
 export {
   src_default as default,

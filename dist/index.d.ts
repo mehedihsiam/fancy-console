@@ -16,6 +16,8 @@ type TColors =
   | "Bright Cyan"
   | "Bright White";
 
+type TVariant = "success" | "info" | "warning" | "error";
+
 type TMethodParams = {
   content: any;
   fileName?: string;
@@ -25,21 +27,18 @@ type TMethodParams = {
   identifierBg?: TColors;
 };
 
-type TVariant = "success" | "info" | "warning" | "error";
-
-type TPayload = {
-    content: any;
-    variant: TVariant;
-    fileName?: string;
-    fileNameColor?: TColors;
-    fileNameBg?: TColors;
-    identifierBg?: TColors;
-    identifierColor?: TColors;
-};
 declare const success: (params: TMethodParams) => void;
 declare const warning: (params: TMethodParams) => void;
 declare const error: (params: TMethodParams) => void;
 declare const info: (params: TMethodParams) => void;
-declare const fancyConsole: (params: TPayload) => void;
+declare const fancyConsole: (params: {
+    content: any;
+    variant: TVariant;
+    fileName?: string | undefined;
+    fileNameColor?: TColors | undefined;
+    fileNameBg?: TColors | undefined;
+    identifierBg?: TColors | undefined;
+    identifierColor?: TColors | undefined;
+}) => void;
 
 export { fancyConsole as default, error, info, success, warning };
