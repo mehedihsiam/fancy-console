@@ -20,10 +20,4 @@ const fancyConsole = (params: TPayload) => {
   );
 };
 
-fancyConsole({
-  content: "Console it here",
-  variant: "success",
-  fileName: "TEst File Name",
-});
-
 export default fancyConsole;

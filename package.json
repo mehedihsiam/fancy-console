@@ -1,6 +1,6 @@
 {
   "name": "fancy-console",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -131,10 +131,10 @@
   },
   "keywords": [
     "console",
-    "console",
     "design",
     "fancy",
-    "console"
+    "console",
+    "javascript"
   ],
   "bugs": {
     "url": "https://github.com/mehedihsiam/fancy-console/issues"

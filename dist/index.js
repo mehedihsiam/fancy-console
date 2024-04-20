@@ -149,11 +149,6 @@ var fancyConsole = (params) => {
     getLogFooter_default()
   );
 };
-fancyConsole({
-  content: "Console it here",
-  variant: "success",
-  fileName: "TEst File Name"
-});
 var src_default = fancyConsole;
 export {
   src_default as default
