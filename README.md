@@ -18,12 +18,12 @@ or
 
     fancyConsole({
     	content:  "//Content You want to log",
-    	variant:  "anyone from the [#variants](#variants)",
+    	variant:  "anyone from the Variants",
     	fileName:  "your file name from where you are writing the log",
-    	fileNameBg:  "anyone from the [#Colors](#colors)",
-    	fileNameColor:  "anyone from the [#Colors](#colors)",
-    	identifierBg:  "anyone from the [#Colors](#colors)",
-    	identifierColor:  "anyone from the [#Colors](#colors)",
+    	fileNameBg:  "anyone from the Colors",
+    	fileNameColor:  "anyone from the Colors",
+    	identifierBg:  "anyone from the Colors",
+    	identifierColor:  "anyone from the Colors",
     });
 
 ### Variants
@@ -51,3 +51,5 @@ or
 - Bright Magenta
 - Bright Cyan
 - Bright White
+
+#### Happy Programming 💗
