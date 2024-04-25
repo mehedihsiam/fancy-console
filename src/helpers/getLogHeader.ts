@@ -6,23 +6,23 @@ import getVariantText from "./getVariantText";
 
 type TParams = {
   variant: TVariant;
-  fileName?: string;
-  fileNameColor?: TColors;
-  fileNameBg?: TColors;
+  identifier?: string;
   identifierColor?: TColors;
   identifierBg?: TColors;
+  badgeColor?: TColors;
+  badgeBg?: TColors;
 };
 
 const getLogHeader = (params: TParams) => {
-  const fnColor = getTextColorCode(params.fileNameColor || "Bright Blue");
-  const bgColor = getBackgroundColorCode(params.fileNameBg || "Bright White");
-  const file = params.fileName
-    ? `located at ${colorizeText(` ${params.fileName} `, fnColor, bgColor)} `
+  const fnColor = getTextColorCode(params.identifierColor || "Bright Blue");
+  const bgColor = getBackgroundColorCode(params.identifierBg || "Bright White");
+  const file = params.identifier
+    ? `located at ${colorizeText(` ${params.identifier} `, fnColor, bgColor)} `
     : "";
   const variantText = getVariantText(
     params.variant,
-    params.identifierColor,
-    params.identifierBg
+    params.badgeColor,
+    params.badgeBg
   );
 
   return `\n\n\n* //==================== ${variantText} ${file}====================\\\\ *`;

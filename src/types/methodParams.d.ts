@@ -2,9 +2,9 @@ import { TColors } from "./colors";
 
 export type TMethodParams = {
   content: any;
-  fileName?: string;
-  fileNameColor?: TColors;
-  fileNameBg?: TColors;
+  identifier?: string;
   identifierColor?: TColors;
   identifierBg?: TColors;
+  badgeColor?: TColors;
+  badgeBg?: TColors;
 };

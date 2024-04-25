@@ -5,11 +5,11 @@ import { TMethodParams } from "../types/methodParams";
 const info = (params: TMethodParams) => {
   const header = getLogHeader({
     variant: "info",
-    fileName: params.fileName,
-    fileNameBg: params.fileNameBg,
-    fileNameColor: params.fileNameColor,
+    identifier: params.identifier,
     identifierBg: params.identifierBg,
     identifierColor: params.identifierColor,
+    badgeBg: params.badgeBg,
+    badgeColor: params.badgeColor,
   });
   const footer = getLogFooter();
 

@@ -6,20 +6,20 @@ import { TVariant } from "../types/text-variant";
 type TPayload = {
   content: any;
   variant: TVariant;
-  fileName?: string;
-  fileNameColor?: TColors;
-  fileNameBg?: TColors;
-  identifierBg?: TColors;
+  identifier?: string;
   identifierColor?: TColors;
+  identifierBg?: TColors;
+  badgeBg?: TColors;
+  badgeColor?: TColors;
 };
 
 const base = (params: TPayload) => {
   const header = getLogHeader({
     variant: params.variant,
-    fileName: params.fileName,
-    fileNameBg: params.fileNameBg,
+    identifier: params.identifier,
     identifierBg: params.identifierBg,
-    identifierColor: params.identifierColor,
+    badgeBg: params.badgeBg,
+    badgeColor: params.badgeColor,
   });
   const footer = getLogFooter();
 

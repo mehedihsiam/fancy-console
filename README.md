@@ -19,11 +19,11 @@ or
     fancyConsole({
     	content:  "//Content You want to log",
     	variant:  "anyone from the Variants",
-    	fileName:  "your file name from where you are writing the log",
-    	fileNameBg:  "anyone from the Colors",
-    	fileNameColor:  "anyone from the Colors",
+    	identifier:  "your file name from where you are writing the log",
     	identifierBg:  "anyone from the Colors",
     	identifierColor:  "anyone from the Colors",
+    	badgeBg:  "anyone from the Colors",
+    	badgeColor:  "anyone from the Colors",
     });
 
 ### Variants

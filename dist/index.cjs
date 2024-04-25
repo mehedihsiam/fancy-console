@@ -159,13 +159,13 @@ var getVariantText_default = getVariantText;
 
 // src/helpers/getLogHeader.ts
 var getLogHeader = (params) => {
-  const fnColor = getTextColorCode(params.fileNameColor || "Bright Blue");
-  const bgColor = getBackgroundColorCode(params.fileNameBg || "Bright White");
-  const file = params.fileName ? `located at ${colorizeText_default(` ${params.fileName} `, fnColor, bgColor)} ` : "";
+  const fnColor = getTextColorCode(params.identifierColor || "Bright Blue");
+  const bgColor = getBackgroundColorCode(params.identifierBg || "Bright White");
+  const file = params.identifier ? `located at ${colorizeText_default(` ${params.identifier} `, fnColor, bgColor)} ` : "";
   const variantText = getVariantText_default(
     params.variant,
-    params.identifierColor,
-    params.identifierBg
+    params.badgeColor,
+    params.badgeBg
   );
   return `
 
@@ -178,11 +178,11 @@ var getLogHeader_default = getLogHeader;
 var success = (params) => {
   const header = getLogHeader_default({
     variant: "success",
-    fileName: params.fileName,
-    fileNameBg: params.fileNameBg,
-    fileNameColor: params.fileNameColor,
+    identifier: params.identifier,
     identifierBg: params.identifierBg,
-    identifierColor: params.identifierColor
+    identifierColor: params.identifierColor,
+    badgeBg: params.badgeBg,
+    badgeColor: params.badgeColor
   });
   const footer = getLogFooter_default();
   console.log(header, "\n\n", params.content, footer);
@@ -193,11 +193,11 @@ var success_default = success;
 var warning = (params) => {
   const header = getLogHeader_default({
     variant: "warning",
-    fileName: params.fileName,
-    fileNameBg: params.fileNameBg,
-    fileNameColor: params.fileNameColor,
+    identifier: params.identifier,
     identifierBg: params.identifierBg,
-    identifierColor: params.identifierColor
+    identifierColor: params.identifierColor,
+    badgeBg: params.badgeBg,
+    badgeColor: params.badgeColor
   });
   const footer = getLogFooter_default();
   console.log(header, "\n\n", params.content, footer);
@@ -208,11 +208,11 @@ var warning_default = warning;
 var error = (params) => {
   const header = getLogHeader_default({
     variant: "error",
-    fileName: params.fileName,
-    fileNameBg: params.fileNameBg,
-    fileNameColor: params.fileNameColor,
+    identifier: params.identifier,
     identifierBg: params.identifierBg,
-    identifierColor: params.identifierColor
+    identifierColor: params.identifierColor,
+    badgeBg: params.badgeBg,
+    badgeColor: params.badgeColor
   });
   const footer = getLogFooter_default();
   console.log(header, "\n\n", params.content, footer);
@@ -223,11 +223,11 @@ var error_default = error;
 var info = (params) => {
   const header = getLogHeader_default({
     variant: "info",
-    fileName: params.fileName,
-    fileNameBg: params.fileNameBg,
-    fileNameColor: params.fileNameColor,
+    identifier: params.identifier,
     identifierBg: params.identifierBg,
-    identifierColor: params.identifierColor
+    identifierColor: params.identifierColor,
+    badgeBg: params.badgeBg,
+    badgeColor: params.badgeColor
   });
   const footer = getLogFooter_default();
   console.log(header, "\n\n", params.content, footer);
@@ -238,10 +238,10 @@ var info_default = info;
 var base = (params) => {
   const header = getLogHeader_default({
     variant: params.variant,
-    fileName: params.fileName,
-    fileNameBg: params.fileNameBg,
+    identifier: params.identifier,
     identifierBg: params.identifierBg,
-    identifierColor: params.identifierColor
+    badgeBg: params.badgeBg,
+    badgeColor: params.badgeColor
   });
   const footer = getLogFooter_default();
   console.log(header, "\n\n", params.content, footer);
@@ -254,6 +254,11 @@ var warning2 = warning_default;
 var error2 = error_default;
 var info2 = info_default;
 var fancyConsole = base_default;
+fancyConsole({
+  content: "Fancy Console",
+  variant: "info",
+  identifier: "fancy-console"
+});
 var src_default = fancyConsole;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
