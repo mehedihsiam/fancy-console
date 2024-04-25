@@ -20,8 +20,8 @@
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"
   },
-  "description": "A simple package to colorize your console and make easy to understand your logs",
   "dependencies": {},
+  "description": "A simple package to colorize your console and make easy to understand your logs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mehedihsiam/fancy-console.git"
